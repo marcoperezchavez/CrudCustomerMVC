@@ -1,0 +1,45 @@
+﻿@model TTiempo.Models.ViewModels.CustomerViewModel
+<div class="col-lg-12">
+    <h2>Edit Customer</h2>
+</div>
+
+@using (Html.BeginForm("Edit", "Customer", FormMethod.Post, new { @class = "col-lg-12" }))
+{
+    <div class="row">
+        <div class="col-md-12 " style="padding-left:30%;padding-right:30%">
+            @Html.HiddenFor(c => c.Id)
+            <div>
+                @Html.LabelFor(c => c.FirstName)
+                @Html.TextBoxFor(c => c.FirstName, "", new { @class = "form-control" })
+                <br />
+                @Html.ValidationMessageFor(c => c.FirstName, null, new { @class = "red text-danger" })
+                <br />
+            </div>
+            <div>
+                @Html.LabelFor(c => c.LastName)
+                @Html.TextBoxFor(c => c.LastName, "", new { @class = "form-control" })
+                <br />
+                @Html.ValidationMessageFor(c => c.LastName, null, new { @class = "red text-danger" })
+                <br />
+            </div>
+            <div>
+                @Html.LabelFor(c => c.DateOfBirth)
+                @Html.EditorFor(c => c.DateOfBirth, new { htmlAttributes = new { @class = "form-control" } })
+                <br />
+                @Html.ValidationMessageFor(c => c.DateOfBirth, null, new { @class = "red text-danger" })
+                <br />
+            </div>
+            <br />
+            <input type="submit" class="btn btn-primary" value="Edit" />
+
+        </div>
+    </div>
+}
+
+
+<script>
+        $(function () {
+            $("#datepicker").datepicker();
+        });
+</script>
+
